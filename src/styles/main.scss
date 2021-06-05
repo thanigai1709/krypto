@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+body {
+	margin: 0;
+	font-family: "Montserrat", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+// color pallete
+$bg-color: #f8fafb;
+$primary-color: #382b73;
+$white: #ffffff;
+
+.plugin-container {
+	max-width: 700px;
+	background: $bg-color;
+	overflow: hidden;
+	.plugin-body {
+		height: 500px;
+		overflow: auto;
+		padding: 18px 0;
+		.coin-table {
+			width: 100%;
+			text-align: left;
+			td,
+			th {
+				padding: 12px 18px;
+				font-size: 14px;
+			}
+			.coin-meta {
+				display: flex;
+				align-items: center;
+				.coin-image {
+					width: 25px;
+					height: 25px;
+					object-fit: cover;
+					vertical-align: middle;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+
+.plugin__header {
+	padding: 18px;
+	background: $primary-color;
+	.brand {
+		display: flex;
+		align-items: center;
+		svg {
+			width: 40px;
+			height: 40px;
+		}
+		span {
+			margin-left: 12px;
+			color: $white;
+			font-size: 30px;
+			font-weight: 500;
+		}
+	}
+}
