@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - echo Installing Node 14 LTS...
-      - curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+      - curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
       - apt-get install -y nodejs
   pre_build:
     commands:
