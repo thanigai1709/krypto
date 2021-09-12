@@ -21,7 +21,7 @@ const Header = () => {
 						/>
 					</g>
 				</svg>
-				<span>Krypto Cap</span>
+				<span>Krypto Cap demo</span>
 			</div>
 		</header>
 	);
