@@ -2,13 +2,15 @@ import "./styles/main.scss";
 import Header from "./components/Header";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Currencies from "./utils/currency";
 
 function App() {
 	const [bitCoin, setBitCoin] = useState(null);
-
+	const [currency, setCurrency] = useState("INR");
+	const currencies = Currencies;
 	function fetchBitCoinData() {
 		axios
-			.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=USD&order=market_cap_desc&per_page=100&page=1&sparkline=false")
+			.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=100&page=1&sparkline=false`)
 			.then((res) => {
 				console.log(res);
 				setBitCoin(res.data);
@@ -19,6 +21,8 @@ function App() {
 	useEffect(() => {
 		fetchBitCoinData();
 	}, []);
+
+	console.log(currencies);
 
 	return (
 		<div className="plugin-container">
@@ -46,9 +50,16 @@ function App() {
 											</span>
 										</div>
 									</td>
-									<td>{coin.current_price.toLocaleString()}</td>
-									<td>{coin.market_cap.toLocaleString()}</td>
-									<td>{coin.total_volume.toLocaleString()}</td>
+									<td>
+										{currencies[currency]}&nbsp;
+										{coin.current_price.toLocaleString()}
+									</td>
+									<td>
+										{currencies[currency]}&nbsp;{coin.market_cap.toLocaleString()}
+									</td>
+									<td>
+										{currencies[currency]}&nbsp;{coin.total_volume.toLocaleString()}
+									</td>
 									<td>{coin.price_change_percentage_24h.toFixed(2)}</td>
 								</tr>
 							))}
